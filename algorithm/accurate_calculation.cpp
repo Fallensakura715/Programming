@@ -85,12 +85,12 @@ int main(){
 //        cout<<"-";
 //    }
 
-//multiply_Big*Int
+//    multiply_Big*Int
 //    int a_1;
 //    cin>>a_1;
 //    result= multi_1(A,a_1);
 
-//multiply_Big*Big
+//    multiply_Big*Big
 //    result= multi_2(A,B);
 
     for (int i = result.size()-1; i >= 0; --i) cout<<result[i];
