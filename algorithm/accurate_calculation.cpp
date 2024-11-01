@@ -39,7 +39,7 @@ vector<int> add(const vector<int> &A,const vector<int> &B){
     return result;
 }
 
-vector<int> muti_1(const vector<int> &A,const int &b){
+vector<int> multi_1(const vector<int> &A,const int &b){
     vector<int> result;
     int carry=0,i=0;
     while (i<A.size() || carry){
@@ -51,7 +51,7 @@ vector<int> muti_1(const vector<int> &A,const int &b){
     return result;
 }
 
-vector<int> muti_2(const vector<int> &A,const vector<int> &B){
+vector<int> multi_2(const vector<int> &A,const vector<int> &B){
     vector<int> result(A.size()+B.size(),0);
     for (int i = 0; i < A.size(); ++i) {
         for (int j = 0; j < B.size(); ++j) {
@@ -85,13 +85,13 @@ int main(){
 //        cout<<"-";
 //    }
 
-//mutiply_Big*Int
+//multiply_Big*Int
 //    int a_1;
 //    cin>>a_1;
-//    result= muti_1(A,a_1);
+//    result= multi_1(A,a_1);
 
-//mutiply_Big*Big
-//    result= muti_2(A,B);
+//multiply_Big*Big
+//    result= multi_2(A,B);
 
     for (int i = result.size()-1; i >= 0; --i) cout<<result[i];
     cout<<endl;
