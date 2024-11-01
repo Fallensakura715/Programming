@@ -39,6 +39,32 @@ vector<int> add(const vector<int> &A,const vector<int> &B){
     return result;
 }
 
+vector<int> muti_1(const vector<int> &A,const int &b){
+    vector<int> result;
+    int carry=0,i=0;
+    while (i<A.size() || carry){
+        if (i<A.size()) carry+=A[i++]*b;
+        result.push_back(carry%10);
+        carry/=10;
+    }
+//    reverse(result.begin(),result.end());
+    return result;
+}
+
+vector<int> muti_2(const vector<int> &A,const vector<int> &B){
+    vector<int> result(A.size()+B.size(),0);
+    for (int i = 0; i < A.size(); ++i) {
+        for (int j = 0; j < B.size(); ++j) {
+            result[i+j]+=A[i]*B[j];
+            result[i+j+1]+=result[i+j]/10;
+            result[i+j]%=10;
+        }
+    }
+    while (result.size()>1 && result.back()==0) result.pop_back();
+//    reverse(result.begin(),result.end());
+    return result;
+}
+
 int main(){
     string a,b;
     vector<int> A,B,result;
@@ -58,6 +84,15 @@ int main(){
 //        result= sub(B,A);
 //        cout<<"-";
 //    }
+
+//mutiply_Big*Int
+//    int a_1;
+//    cin>>a_1;
+//    result= muti_1(A,a_1);
+
+//mutiply_Big*Big
+//    result= muti_2(A,B);
+
     for (int i = result.size()-1; i >= 0; --i) cout<<result[i];
     cout<<endl;
     return 0;
