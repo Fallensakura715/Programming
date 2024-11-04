@@ -35,7 +35,7 @@ vector<int> add(const vector<int> &A,const vector<int> &B){
         result.push_back(carry%10);
         carry/=10;
     }
-//    reverse(result.begin(),result.end());
+    reverse(result.begin(),result.end());
     return result;
 }
 
@@ -47,7 +47,7 @@ vector<int> multi_1(const vector<int> &A,const int &b){
         result.push_back(carry%10);
         carry/=10;
     }
-//    reverse(result.begin(),result.end());
+    reverse(result.begin(),result.end());
     return result;
 }
 
@@ -61,7 +61,19 @@ vector<int> multi_2(const vector<int> &A,const vector<int> &B){
         }
     }
     while (result.size()>1 && result.back()==0) result.pop_back();
-//    reverse(result.begin(),result.end());
+    reverse(result.begin(),result.end());
+    return result;
+}
+
+vector<int> div_1(const vector<int> &A,const int &b,int &r){
+    vector<int> result;
+    r=0;
+    for (int i=A.size()-1; i>=0; --i) {
+        r=r*10+A[i];
+        result.push_back(r/b);
+        r%=b;
+    }
+    while (result.size()>1 && result.front()==0) result.erase(result.begin());
     return result;
 }
 
@@ -93,7 +105,10 @@ int main(){
 //    multiply_Big*Big
 //    result= multi_2(A,B);
 
-    for (int i = result.size()-1; i >= 0; --i) cout<<result[i];
+//    div_Big/Int
+//    int r;//r是余数
+
+    for (int it:result) cout<<it;
     cout<<endl;
     return 0;
 }
