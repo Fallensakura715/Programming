@@ -21,7 +21,7 @@ void quick_sort(int arr[],int l,int r){
     quick_sort(arr,j+1,r);
 }
 
-int main(void){
+int main(){
     scanf("%d",&n);
     for(int i=0;i<n;i++) scanf("%d",&arr[i]);
 
