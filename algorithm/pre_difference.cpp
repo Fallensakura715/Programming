@@ -11,6 +11,7 @@ int a[N][N]={0},diff[N][N]={0};
 //二维差分(diff)
 //a和diff都初始为0，以插入的形式，把a元素插入diff数组
 //diff数组不等于a数组,插入值后(+=c) 后面的还-=c了,与a[i]-a[i-1]效果差不多的
+//还可以用vector<vector<int>> diff(n+1,vector<int>(m+1,0));
 
 void insert(int x1,int y1,int x2,int y2,int c){
     diff[x1][y1]+=c;
