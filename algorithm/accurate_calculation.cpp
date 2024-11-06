@@ -4,6 +4,8 @@
 #include <vector>
 using namespace std;
 
+//以下输入是倒序输入，输入的个位在前面
+//函数没有reverse的输出是倒序，除法除外
 bool cmp_sub_vector(const vector<int> &A,const vector<int> &B){
     if (A.size()!=B.size()) return A.size()>B.size();
     for (int i = A.size()-1; i >= 0; --i)
