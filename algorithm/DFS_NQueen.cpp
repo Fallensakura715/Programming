@@ -5,7 +5,7 @@ using namespace std;
 int n;
 char path[N][N];
 bool dg[N],udg[N],col[N];
-
+//全排列解法
 void dfs(int u) {
     if (n == u) {
         for (int i = 0; i < n; ++i) {
