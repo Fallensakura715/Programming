@@ -15,6 +15,7 @@ void dfs(int u) {
         return;
     }
     for (int i = 1; i <= n; ++i) {
+        //对角线下标想象成一次函数的截距，row和col想象成x和y  +n是防止<0
         if (!dg[u-i+n] && !udg[i+u] && !col[i]) {
             path[u][i] = 'Q';
             col[i]=dg[u-i+n]=udg[u+i]= true;
