@@ -69,7 +69,6 @@ void dfs(int x,int y,int queen) {
     }
 }
 
-
 int main(){
     cin>>n;
     for (int i = 0; i < n; ++i) {
