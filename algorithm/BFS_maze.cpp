@@ -10,7 +10,6 @@ int n,m;
 int graph[N][N],went[N][N];//went数组是每一个点到起点的距离
 PII q[N*N],Prev[N][N];//q是模拟队列 里面存路径点的坐标x,y,Prev是路径
 
-
 int bfs(){
     //queue<PII> q;
     //q.push({0,0});
@@ -37,7 +36,6 @@ int bfs(){
             }
         }
     }
-
     //输出路径
     int x=n-1,y=m-1;
     while (x||y) {
@@ -45,7 +43,6 @@ int bfs(){
         auto t= Prev[x][y];
         x=t.first,y=t.second;
     }
-
     return went[n-1][m-1];
 }
 
