@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cstring>
+#include <queue>
 using namespace std;
 #define N 110
 
@@ -11,6 +12,8 @@ PII q[N*N],Prev[N][N];//q是模拟队列 里面存路径点的坐标x,y,Prev是�
 
 
 int bfs(){
+    //queue<PII> q;
+    //q.push({0,0});
     int hh=0,tt=0;//hh是队头，tt是队尾
     q[0]={0,0};
     memset(went,-1, sizeof(went));
@@ -20,14 +23,17 @@ int bfs(){
     int dx[4]={-1,0,1,0};
     int dy[4]={0,1,0,-1};
 
-    while (hh<=tt) {//队列不空
+    while (hh<=tt) {//队列不空, 没东西扔进队尾,一直取队头就空了
         auto t=q[hh++];//t是队列头部的点，取出来个队头
+        //t=q.front();
+        //q.pop();
         for (int i = 0; i < 4; ++i) {//队头往上下左右四个方向扩展
             int x=t.first+dx[i],y=t.second+dy[i];//(x,y)是t点扩展后的坐标
             if (x>=0 && x<n && y>=0 && y<n && graph[x][y]==0 && went[x][y]==-1) {//没出界，能走，没走过
                 went[x][y]=went[t.first][t.second]+1;//该点的距离+1
                 Prev[x][y]=t;//把对头存储进路径里
                 q[++tt]={x,y};//把扩展后的点扔进队尾
+                //q.push({x,y});
             }
         }
     }
