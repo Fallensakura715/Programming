@@ -12,7 +12,7 @@ PII q[N*N],Prev[N][N];//q是模拟队列 里面存路径点的坐标x,y,Prev是�
 
 int bfs(){
     //queue<PII> q;
-    //q.push({0,0});
+    //q.empalce(0,0);
     int hh=0,tt=0;//hh是队头，tt是队尾
     q[0]={0,0};
     memset(went,-1, sizeof(went));
@@ -30,9 +30,9 @@ int bfs(){
             int x=t.first+dx[i],y=t.second+dy[i];//(x,y)是t点扩展后的坐标
             if (x>=0 && x<n && y>=0 && y<n && graph[x][y]==0 && went[x][y]==-1) {//没出界，能走，没走过
                 went[x][y]=went[t.first][t.second]+1;//该点的距离+1
-                Prev[x][y]=t;//把对头存储进路径里
+                Prev[x][y]=t;//t是前一个点的路径 prev[x][y]存储的是上一个点(t.first,t.second)
                 q[++tt]={x,y};//把扩展后的点扔进队尾
-                //q.push({x,y});
+                //q.emplace(x,y);
             }
         }
     }
