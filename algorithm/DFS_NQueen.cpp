@@ -4,7 +4,7 @@ using namespace std;
 
 int n;
 char path[N][N];
-bool dg[N],udg[N],col[N];
+bool dg[2*N],udg[2*N],col[N];
 //全排列解法 u是row
 void dfs(int u) {
     if (n==u) {
@@ -16,7 +16,7 @@ void dfs(int u) {
     }
     for (int i = 1; i <= n; ++i) {
         //对角线下标想象成一次函数的截距，row和col想象成x和y  +n是防止(u-i)<0
-        if (!dg[u-i+u] && !udg[i+u] && !col[i]) {
+        if (!dg[u-i+n] && !udg[i+u] && !col[i]) {
             path[u][i]= 'Q';
             col[i]=dg[u-i+n]=udg[u+i]= true;
             dfs(u+1);
@@ -44,7 +44,7 @@ using namespace std;
 
 int n;
 char path[N][N];
-bool row[N],col[N],dg[N],udg[N];
+bool row[N],col[N],dg[2*N],udg[2*N];
 
 void dfs(int x,int y,int queen) {
     if (y==n) x++,y=0;
