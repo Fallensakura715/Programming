@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 
+/*
+int l = 0, r = N, res = 0;
+    while (l <= r) {
+        int mid = (l+r)/2;
+        if (check(mid)) {
+            res = mid;
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+*/
 int main(){
     int n,q;
     cin>>n>>q;
