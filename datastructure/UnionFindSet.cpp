@@ -5,7 +5,7 @@ const int N = 100010;
 int parents[N];
 int n, m;
 
-int find(int x) { //路径压缩
+int find(int x) { //璺緞鍘嬬缉
     if (parents[x] != x) {
         parents[x] = find(parents[x]);
     }
@@ -21,10 +21,10 @@ int main() {
         char op;
         int a, b;
         cin >> op >> a >> b;
-        if (op == 'M') { // 合并两个集合
+        if (op == 'M') { // 鍚堝苟涓や釜闆嗗悎
             parents[find(a)] = find(b);
         }
-        if (op == 'Q') { // 查询a, b是否在同一个集合里
+        if (op == 'Q') { // 鏌ヨa, b鏄惁鍦ㄥ悓涓�涓泦鍚堥噷
             if (find(a) == find(b)) {
                 cout << "Yes";
             }else cout << "No";
