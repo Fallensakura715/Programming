@@ -29,6 +29,7 @@ int main() {
         }
         cin >> a >> b;
         if (op[0] == 'C') {
+            if (find(a) == find(b)) continue;
             psize[find(b)] += psize[find(a)]; // 合并的时候先合并size，再给俩集合合并
             parents[find(a)] = find(b);
         }else if (op[1] == '1') {
