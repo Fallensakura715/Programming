@@ -5,9 +5,9 @@ using namespace std;
 constexpr int N = 1e5 + 10;
 constexpr int MOD = 1e5 + 3;
 int h[N], e[N], next_e[N], idx = 0;
-//Õâ¸öÊÇÀ­Á´·¨
-//eÊÇ¸öÄ£ÄâÁ´±í
-//hÊÇhash±íÊ¾h[i]µÄÖµ´æÔÚÁËe[h[i]]Àï
+//è¿™ä¸ªæ˜¯æ‹‰é“¾æ³•
+//eæ˜¯ä¸ªæ¨¡æ‹Ÿé“¾è¡¨
+//hæ˜¯hashè¡¨ç¤ºh[i]çš„å€¼å­˜åœ¨äº†e[h[i]]é‡Œ
 
 void insert(int k) {
     e[idx] = k;
