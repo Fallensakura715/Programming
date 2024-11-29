@@ -5,7 +5,7 @@ using namespace std;
 constexpr int N = 1e5 + 10;
 constexpr int MOD = 1e5 + 3;
 int h[N], e[N], next_e[N], idx = 0;
-//这个是拉链法
+//这个是链式法
 //e是个模拟链表
 //h是hash表示h[i]的值存在了e[h[i]]里
 
