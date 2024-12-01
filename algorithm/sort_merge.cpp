@@ -8,7 +8,7 @@ void merge_sort(int arr[], int l, int r){
     if (l >= r) return;
     int x = (l + r) / 2;
     merge_sort(arr, l, x);
-    merge_sort(arr, x+1, r);
+    merge_sort(arr, x + 1, r);
 
     int temp_idx = 0, i = l, j = x + 1;
     while (i <= x && j <= r){
