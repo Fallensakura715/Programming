@@ -12,7 +12,7 @@ int main() {
         cin >> v[i] >> w[i];
     }
 
-    //��άdp
+    //¶þÎ¬dp
     for (int i = 1; i <= n; ++i) {
         for (int j = 0; j <= capacity; ++j) {
             dp2[i][j] = dp2[i - 1][j];
@@ -20,7 +20,7 @@ int main() {
         }
     }
     
-    //һά�Ż���
+    //Ò»Î¬ÓÅ»¯°æ
     for (int i = 1; i <= n; ++i) {
         for (int j = v[i]; j <= capacity; ++j) {
             dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
