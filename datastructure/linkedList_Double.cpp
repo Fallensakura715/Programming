@@ -44,7 +44,7 @@ bool insert(DuLinkList &L, int i, Elemtype e) {
     auto newNode = new DuLNode;
     newNode->data = e;
     newNode->prior = p->prior;
-    newNode->next = p->next;
+    newNode->next = p;
     p->prior->next = newNode;
     p->prior = newNode;
     return true;
