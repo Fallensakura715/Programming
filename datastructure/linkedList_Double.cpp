@@ -30,7 +30,7 @@ bool ListDelete_DuL(DuLinkList &L, int i, Elemtype &e) {
     if (!p) return false;
     e = p->data;
     p->prior->next = p->next;
-    if (p->next) {  //Èç¹û²»ÊÇ×îºóÒ»¸ö
+    if (p->next) {  //如果不是最后一个
         p->next->prior = p->prior;
     }
     delete p;
