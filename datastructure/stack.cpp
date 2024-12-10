@@ -7,12 +7,12 @@ typedef struct {
     SElemtype *base;
     SElemtype *top;
     int stacksize;
-}SqStack;//˳��ջ
+}SqStack;//顺序栈
 
 typedef struct StackNode{
     SElemtype data;
     StackNode *next;
-}StackNode, *LinkStack;//��ջ
+}StackNode, *LinkStack;//链栈
 
 bool initLStack(LinkStack &S) {
     S = nullptr;
