@@ -7,10 +7,10 @@ class LQueue {
 private:
     struct QNode {
         ElemType data;
-        QNode* next;
+        QNode *next;
     };
-    QNode* front;
-    QNode* rear;
+    QNode *front;
+    QNode *rear;
 
 public:
     LQueue() {
