@@ -138,6 +138,72 @@ public:
 //     return createBT(pre, 0, n - 1, in, 0, n - 1);
 // }
 
+
+// createBinaryTree according to levelorder
+// calculate Binarytree maxWidth
+
+// TreeNode* createTree(TElemSet levelorder[], int n) {
+//     if (n == 0 || levelorder[0] == -1) return NULL;
+
+//     TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
+//     root->data = levelorder[0];
+//     root->left = root->right = NULL;
+
+//     Queue q;
+//     initQueue(&q, n + 1);
+//     enqueue(&q, root);
+
+//     int i = 1;
+//     while (i < n) {
+//         TreeNode *pNode = dequeue(&q);
+//         if (pNode == NULL) {
+//             break;
+//         }
+
+//         if (i < n && levelorder[i] != -1) {
+//             TreeNode *lNode = (TreeNode *)malloc(sizeof(TreeNode));
+//             lNode->data = levelorder[i];
+//             lNode->left = lNode->right = NULL;
+//             pNode->left = lNode;
+//             enqueue(&q, lNode);
+//         } i++;
+
+//         if (i < n && levelorder[i] != -1) {
+//             TreeNode *rNode = (TreeNode *)malloc(sizeof(TreeNode));
+//             rNode->data = levelorder[i];
+//             rNode->left = rNode->right = NULL;
+//             pNode->right = rNode;
+//             enqueue(&q, rNode);
+//         } i++;
+//     }
+//     free(q.arr);
+//     return root;
+// }
+
+// int Width(TElemSet levelorder[], int n) {
+//     if (n == 0 || levelorder == NULL) return 0;
+//     TreeNode *root = createTree(levelorder, n);
+//     if (!root) return 0;
+    
+//     Queue q;
+//     initQueue(&q, n + 1);
+//     enqueue(&q, root);
+
+//     int maxsize = 0;
+//     while (!isEmpty(&q)) {
+//         int size = (q.rear - q.front + q.capacity) % q.capacity;
+//         if (size > maxsize) maxsize = size;
+
+//         for (int i = 0; i < size; i++) {
+//             TreeNode *pNode = dequeue(&q);
+//             if (pNode->left != NULL) enqueue(&q, pNode->left);
+//             if (pNode->right != NULL) enqueue(&q, pNode->right);
+//         }
+//     }
+//     free(q.arr);
+//     return maxsize;
+// }
+
 int main() {
     return 0;
 }
