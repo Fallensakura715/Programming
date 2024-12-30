@@ -6,22 +6,22 @@ const int N=1e6 + 10;
 int n;
 int arr[N];
 
-void quick_sort(int arr[],int l,int r){
-    if(l>=r) return;
-    int x=arr[(l+r)/2];
-    int i=l-1,j=r+1;
+void quick_sort(int arr[], int l, int r){
+    if(l >= r) return;
+    int x = arr[r];
+    int i = l - 1, j = r + 1;
 
-    while (i<j)
+    while (i < j)
     {
-        do i++;while(arr[i]<x);
-        do j--;while(arr[j]>x);
-        if(i<j) swap(arr[i],arr[j]);
+        do i++; while(arr[i] < x);
+        do j--; while(arr[j] > x);
+        if(i < j) swap(arr[i], arr[j]);
     }
-    quick_sort(arr,l,j);
-    quick_sort(arr,j+1,r);
+    quick_sort(arr, l, j);
+    quick_sort(arr, j+1, r);
 }
 
-int partition(std::vector<int>& arr, int low, int high) {
+int partition(int &arr, int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
 
