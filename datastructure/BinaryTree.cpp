@@ -113,6 +113,31 @@ public:
     }
 };
 
+// createBinaryTree according to inorder and preorder
+
+// BiTNode *createBT(int *pre, int preL, int preR, int *in, int inL, int inR) {
+//     if (preL > preR || inL > inR) return nullptr;
+//     auto root = new BiTNode(pre[preL], nullptr, nullptr);
+
+//     int rootIn = -1;
+//     for (int i = inL; i <= inR; ++i) {
+//         if (in[i] == pre[preL]) {
+//             rootIn = i;
+//             break;
+//         }
+//     }
+
+//     int lsize = rootIn - inL;
+//     root->lchild = createBT(pre, preL + 1, preL + lsize, in, inL, rootIn - 1);
+//     root->rchild = createBT(pre, preL + lsize + 1, preR, in, rootIn + 1, inR);
+//     return root;
+// }
+
+// BiTNode* CreateBT(int* pre, int *in, int n) {
+//     if (n == 0) return nullptr;
+//     return createBT(pre, 0, n - 1, in, 0, n - 1);
+// }
+
 int main() {
     return 0;
 }
