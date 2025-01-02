@@ -63,11 +63,10 @@ void createHuffmanCode(HTree HT, char **&HTCode, int n) {
         int start = n - 1;
         int curr = i;
         while (HT[curr].parent != 0) {
-            int pa = HT[i].parent;
-            curr = pa;
-
-            if (HT[pa].left == i) temp[--start] = '0';
+            int pa = HT[curr].parent;
+            if (HT[pa].left == curr) temp[--start] = '0';
             else temp[--start] = '1';
+            curr = pa;
         }
         HTCode[i] = new char[n - start];
         strcpy(HTCode[i], &temp[start]);
