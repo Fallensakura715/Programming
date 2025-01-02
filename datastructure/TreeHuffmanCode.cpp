@@ -8,7 +8,7 @@ typedef struct {
     int left, right;
 }HTNode, *HTree;
 
-//找r_dix之前的最小两个根节点
+//鎵緍_dix涔嬪墠鐨勬渶灏忎袱涓牴鑺傜偣
 void select(HTree HT, int r_idx, int &s1, int &s2) {
     if (HT[1].weight > HT[2].weight) {
         s2 = 1;
@@ -54,7 +54,7 @@ void createHTree(HTree HT, int n) {
     }
 }
 
-void createHuffmanCoding(HTree HT, char **&HTCode, int n) {
+void createHuffmanCode(HTree HT, char **&HTCode, int n) {
     HTCode = new char*[n + 1];
     char *temp = new char[n];
     temp[n - 1] = '\0';
