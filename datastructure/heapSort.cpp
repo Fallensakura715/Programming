@@ -4,7 +4,7 @@ using namespace std;
 using ElemType = int;
 
 //priority_queue
-//nÊÇ¶ÑµÄ´óĞ¡£¬iÊÇ¶Ñ¸ù½ÚµãË÷Òı
+//næ˜¯å †çš„å¤§å°ï¼Œiæ˜¯å †æ ¹èŠ‚ç‚¹ç´¢å¼•
 void heapify(ElemType heap[], int n, int i) {
     int largest = i;
     int left = i * 2;
