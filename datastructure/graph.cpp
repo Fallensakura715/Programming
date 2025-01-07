@@ -39,7 +39,7 @@ int locateVexM(AMGraph G, VertexType u) {
     return -1;
 }
 
-//ÎÞÏòÍø,ÁÚ½Ó¾ØÕó
+//æ— å‘ç½‘,é‚»æŽ¥çŸ©é˜µ
 bool createUDN(AMGraph &G) {
     cin >> G.vex_num >> G.arc_num;
     for (int i = 0; i < G.vex_num; i++) cin >> G.vexes[i];
@@ -68,7 +68,7 @@ int locateVexL(ALGraph G, VertexType u) {
     return -1;
 }
 
-//ÎÞÏòÍø£¬ÁÚ½Ó±í
+//æ— å‘ç½‘ï¼Œé‚»æŽ¥è¡¨
 bool createUDG(ALGraph &G) {
     cin >> G.vex_num >> G.arc_num;
     for (int i = 0; i < G.vex_num; ++i) {
