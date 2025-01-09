@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 constexpr int MAX_N = 100;
@@ -109,17 +110,63 @@ void DFS(AMGraph G, int vex) {
     }
 }
 
-void DFS(ALGraph *G,int i) {
+void BFS(AMGraph G, int v) {
+    queue<int> q;
+    q.push(v);
+    visited[v] = true;
+
+    while (!q.empty()) {
+        int curr = q.front(); q.pop();
+        cout << G.vexes[curr] << " ";
+
+        for (int i = 0; i < G.vex_num; ++i) {
+            if (!visited[i] && G.arcs[v][i] != MAX_V) {
+                visited[i] = true;
+                q.push(i);
+            }
+        }
+    }
+}
+
+void DFS(ALGraph G,int i) {
     visited[i] = true;
     printf(" %d", i);
 
-    ArcNode *p = G->vertices[i].firstarc;
+    ArcNode *p = G.vertices[i].firstarc;
     while (p) {
         if (!visited[p->vex_idx]) {
             DFS(G, p->vex_idx);
         }
         p = p->next;
     }
+}
+
+void BFS(ALGraph G, int v) {
+    queue<int> q;
+    q.push(v);
+    visited[v] = true;
+
+    while (!q.empty()) {
+        int curr = q.front(); q.pop();
+
+        ArcNode *p = G.vertices[curr].firstarc;
+        while (p) {
+            if (!visited[p->vex_idx]) {
+                q.push(p->vex_idx);
+                visited[p->vex_idx] = true;
+                cout << G.vertices[curr].data << " ";
+            }
+            p = p->next;
+        }
+    }
+}
+void BFSTraverse(ALGraph G) {
+    int v;
+    for (v = 0; v < G.vex_num; ++v)
+        visited[v] = false;
+    for (v = 0; v < G.vex_num; ++v)
+        if (!visited[v])
+            BFS(G, v);
 }
 
 int main() {
