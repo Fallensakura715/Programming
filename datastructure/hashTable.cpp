@@ -67,6 +67,32 @@ int main() {
 //         }
 //     }
 // }
+//拉链法的链表删除函数，具体数据结构理解理解吧
+// bool Delete(HashTable H, ElementType Key) {
+//     if (!H || !Key) return false;
+//     if (H->TableSize <= 0) return false;
+
+//     Index i = Hash(Key, H->TableSize);
+//     if (i < 0 && i >= H->TableSize) return false;
+
+//     Position p = H->Heads[i].Next;
+//     Position prev = NULL;
+
+//     while (p) {
+//         if (strcmp(p->Data, Key) == 0) {
+//             if (prev == NULL) {
+//                 H->Heads[i].Next = p->Next;
+//             } else {
+//                 prev->Next = p->Next;
+//             }
+//             printf("%s is deleted from list Heads[%d]\n", Key, i);
+//             return true;
+//         }
+//         prev = p;
+//         p = p->Next;
+//     }
+//     return false;
+// }
 
 // 计算平均查找长度
 // 对于第 i 个非空桶，记该桶中链表长度为 c_i，成功查找其中任意元素时平均需要 (c_i + 1) / 2 次比较
