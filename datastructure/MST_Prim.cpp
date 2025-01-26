@@ -10,7 +10,7 @@ typedef struct{
     int vexnum,arcnum;
 }AMGraph;
 
-// MST Prim算法 邻接矩阵实现
+// MST Prim脣茫路篓 脕脷陆脫戮脴脮贸脢碌脧脰
 int prim(AMGraph G) {
     int V = G.vexnum;
     int key[V];
