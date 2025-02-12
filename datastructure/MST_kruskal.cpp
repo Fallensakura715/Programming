@@ -52,7 +52,7 @@ int kruskal(AMGraph G) {
     sort(Edges, Edges + E, compare);
 
     int edgeCount = 0, result = 0;
-    for (int i = 0; i < E && edgeCount < V - 1; ++i) {
+    for (int i = 0; i < E && edgeCount < V - 1; ++i) {//遍历顶点
         int h = locateVex(G, Edges[i].Head);
         int t = locateVex(G, Edges[i].Tail);
         int w = Edges[i].weight;
@@ -63,7 +63,7 @@ int kruskal(AMGraph G) {
         if (hRoot != tRoot) {
             result += w;
             edgeCount++;
-            parent[hRoot] = tRoot;
+            parent[hRoot] = tRoot; //并查集合并，加上if判断确保不会成环
 
             cout << Edges[i].Head << "->" << Edges[i].Tail << endl;
         }
