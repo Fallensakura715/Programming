@@ -13,7 +13,7 @@ struct Evode {
 
 struct AMGraph {
     char vexs[MAX_V];
-    char arcs[MAX_V][MAX_V];
+    int arcs[MAX_V][MAX_V];
     int vexnum, arcnum;
 };
 
