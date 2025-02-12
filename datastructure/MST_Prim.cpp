@@ -10,7 +10,6 @@ typedef struct{
     int vexnum,arcnum;
 }AMGraph;
 
-// MST PrimËã·¨ ÁÚ½Ó¾ØÕóÊµÏÖ
 int prim(AMGraph G) {
     int V = G.vexnum;
     int key[V];
@@ -33,6 +32,7 @@ int prim(AMGraph G) {
         result += key[u];
         inMST[u] = true;
 
+        //更新剩下顶点到刚加入MST点的权重
         for (int j = 0; j < V; ++j) {
             if (G.arcs[u][j] > 0 && !inMST[j] && G.arcs[u][j] < key[j]) {
                 key[j] = G.arcs[u][j];
