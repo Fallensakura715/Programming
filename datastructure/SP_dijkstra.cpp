@@ -7,11 +7,6 @@ using namespace std;
 constexpr int INF = numeric_limits<int>::max();
 constexpr int MAX_V = 10;
 
-struct {
-    int to;
-    int weight;
-};
-
 int dist[MAX_V];
 int graph[MAX_V][MAX_V];
 bool visited[MAX_V];
