@@ -15,7 +15,7 @@ int main() {
         int x;
         cin >> x;
 
-        while (!s.empty() && x <= s.top()) {
+        while (!s.empty() && x <= s.top()) {//找x左边第一个 <= x 的数
             res[s.top()] = x;
             s.pop();
         }
