@@ -40,7 +40,7 @@ int main() {
     }
 
     bool canReach = true;
-    for (const auto& e : edges) {
+    for (const auto& e : edges) {//检测是否有负权环
         if (dist[e.u] != INF && dist[e.u] + e.weight < dist[e.v]) {
             canReach = false;
         }
