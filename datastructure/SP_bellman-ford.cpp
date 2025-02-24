@@ -1,6 +1,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -27,10 +28,13 @@ int main() {
     dist[src] = 0;
 
     for (int i = 0; i < n - 1; ++i) {
+        vector<int> backup;//可以不备份，备份防止有边数限制的时候出现乱更新
+        backup = dist;
         bool updated = false;
         for (const auto& e : edges) {
-            if (dist[e.u] != INF && dist[e.u] + e.weight < dist[e.v]) {
-                dist[e.v] = dist[e.u] + e.weight;
+            if (dist[e.u] != INF && backup[e.u] + e.weight < dist[e.v]) {
+                dist[e.v] = backup[e.u] + e.weight;
+                updated = true;
             }
         }
         if (!updated) break;
@@ -46,6 +50,6 @@ int main() {
     int dest;
     cin >> dest;
     cout << dist[dest];
-    
+
     return 0;
 }
