@@ -30,11 +30,13 @@ int main() {
 
     dist[0] = 0;
     q.push(0);
+    inQueue[0] = true;
 
     bool negativeCycle = false;
     while (!q.empty()) {
-        int u = q.front();
+        int u = q.front();//队列里存的是所有变小过的dist[],只要队列不空就用dist[]+w更新其他点
         q.pop();
+        inQueue[u] = false;
 
         for (const auto& edge: graph[u]) {
             int v = edge.to;
@@ -44,9 +46,9 @@ int main() {
                 if (!inQueue[v]) {
                     q.push(v);
                     inQueue[v] = true;
-                    countRelax[v]++;
 
-                    if (countRelax[v] >= n) {
+                    countRelax[v]++;
+                    if (countRelax[v] >= n) {//负权边会一直绕圈走，countRelax就会很大
                         negativeCycle = true;
                         break;
                     }
