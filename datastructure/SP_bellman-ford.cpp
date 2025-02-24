@@ -28,8 +28,7 @@ int main() {
     dist[src] = 0;
 
     for (int i = 0; i < n - 1; ++i) {
-        vector<int> backup;//可以不备份，备份防止有边数限制的时候出现乱更新
-        backup = dist;
+        vector<int> backup(dist);//可以不备份，备份防止有边数限制的时候出现乱更新
         bool updated = false;
         for (const auto& e : edges) {
             if (dist[e.u] != INF && backup[e.u] + e.weight < dist[e.v]) {
