@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
+
 using namespace std;
 
 constexpr int MVNum = 100;
+constexpr int INF = numeric_limits<int>::max();
+
 typedef struct{
     char vexs[MVNum];
     int arcs[MVNum][MVNum];
@@ -12,7 +15,8 @@ typedef struct{
 
 int prim(AMGraph G) {
     int V = G.vexnum;
-    int key[V];
+    
+    vector<int> key(V, INF);
     vector<bool> inMST(V, false);
 
     key[0] = 0;
