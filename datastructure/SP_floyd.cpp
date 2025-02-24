@@ -7,7 +7,7 @@ using namespace std;
 constexpr int INF = numeric_limits<int>::max();
 constexpr int MAX_V = 10;
 
-vector<vector<int>> dist;//邻接矩阵
+vector<vector<int>> dist;//从i到j的最短距离
 
 void floyd(int n) {
     dist.assign(n, vector<int>(n, INF));
