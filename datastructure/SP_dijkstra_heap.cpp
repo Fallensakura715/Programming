@@ -22,7 +22,7 @@ void dijkstra(int source) {
     dist.assign(n, INF);
     dist[source] = 0;
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;//自定义小根堆
     heap.emplace(0, source);
 
     while (!heap.empty()) {
