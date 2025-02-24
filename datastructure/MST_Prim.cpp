@@ -20,12 +20,9 @@ int prim(AMGraph G) {
 
     for (int i = 0; i < V; ++i) {
         int u = -1;
-        int minKey = INT_MAX;
-
         for (int j = 0; j < V; ++j) {
             if (!inMST[j] && key[j] < minKey) {
                 u = j;
-                minKey = key[j];
             }
         }
 
