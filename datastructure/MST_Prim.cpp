@@ -1,44 +1,50 @@
 #include <iostream>
-#include <vector>
 #include <limits>
+#include <vector>
 
 using namespace std;
 
-constexpr int MVNum = 100;
 constexpr int INF = numeric_limits<int>::max();
 
-typedef struct{
-    char vexs[MVNum];
-    int arcs[MVNum][MVNum];
-    int vexnum,arcnum;
-}AMGraph;
+int prim(vector<vector<int>>& graph, int n) {
+    int res = 0;
 
-int prim(AMGraph G) {
-    int V = G.vexnum;
-    
-    vector<int> key(V, INF);
-    vector<bool> inMST(V, false);
+    vector<int> key(n, INF);
+    vector<bool> inMST(n, false);
+    vector<int> parent(n, -1);
 
     key[0] = 0;
-    int result = 0;
 
-    for (int i = 0; i < V; ++i) {
+    for (int i = 0; i < n; ++i) {
         int u = -1;
-        for (int j = 0; j < V; ++j) {
-            if (!inMST[j] && key[j] < minKey) {
+        for (int j = 0; j < n; ++j) {
+            if (!inMST[j] && (u == -1 || key[j] < key[u])) {
                 u = j;
             }
         }
 
-        result += key[u];
         inMST[u] = true;
+        
+        if (key[u] != INF) {
+            res += key[u];
+        }
 
-        //更新剩下顶点到刚加入MST点的权重
-        for (int j = 0; j < V; ++j) {
-            if (G.arcs[u][j] > 0 && !inMST[j] && G.arcs[u][j] < key[j]) {
-                key[j] = G.arcs[u][j];
+        // 更新u到v的边权
+        for (int v = 0; v < n; ++v) {
+            if (graph[u][v] != INF && !inMST[v] && graph[u][v] < key[v]) {
+                parent[v] = u;
+                key[v] = graph[u][v];
             }
         }
     }
-    return result;
+
+    return res;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> graph(n, vector<int>(n, INF));
+    int res = prim(graph, n);
+    return 0;
 }
