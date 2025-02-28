@@ -1,72 +1,62 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
-constexpr int MAX_V = 10;
+constexpr int N = 100;
 
-struct Evode {
-    char Head;
-    char Tail;
+struct Edge {
+    int from, to;
     int weight;
-} Edges[MAX_V * (MAX_V - 1) / 2];
 
-struct AMGraph {
-    char vexs[MAX_V];
-    int arcs[MAX_V][MAX_V];
-    int vexnum, arcnum;
+    bool operator < (const Edge& other) const { 
+        return weight < other.weight; 
+    }
 };
 
-int parent[MAX_V];
+int parent[N];
 
-void inputEdges();
-
-int find(int v) {
-    if (parent[v] != v) {
-        parent[v] = find(parent[v]);
+int find(int x) {
+    if (x != parent[x]) {
+        parent[x] = find(parent[x]);
     }
-    return parent[v];
+    return parent[x];
 }
 
-int locateVex(AMGraph G, char v) {
-    int V = G.vexnum;
-    for (int i = 0; i < V; ++i) {
-        if (G.vexs[i] == v) {
-            return i;
+int kruskal(vector<Edge>& edges, int n, int m) {
+    vector<Edge> res;
+    int edge_cnt = 0;
+
+    for (int i = 0; i < n; ++i) parent[i] = i;
+
+    sort(edges.begin(), edges.end());
+
+    for (int i = 0; i < m && edge_cnt < n - 1; ++i) {
+        Edge curr = edges[i];
+
+        int root_src = find(curr.from);
+        int root_dst = find(curr.to);
+
+        if (root_src != root_dst) {
+            res.push_back(curr);
+            parent[root_src] = root_dst;
+            edge_cnt++;
         }
     }
-    return -1;
+
+    if (edge_cnt < n - 1) {
+        return -1;
+    }
+
+    int total_cost = 0;
+    for (const auto& edge : res) {
+        total_cost += edge.weight;
+    }
+
+    return total_cost;
 }
 
-bool compare(Evode &a, Evode &b) { return a.weight < b.weight; }
-
-int kruskal(AMGraph G) {
-    int V = G.vexnum, E = G.arcnum;
-
-    inputEdges();
-
-    for (int i = 0; i < V; ++i) {
-        parent[i] = i;
-    }
-
-    sort(Edges, Edges + E, compare);
-
-    int edgeCount = 0, result = 0;
-    for (int i = 0; i < E && edgeCount < V - 1; ++i) {//遍历顶点
-        int h = locateVex(G, Edges[i].Head);
-        int t = locateVex(G, Edges[i].Tail);
-        int w = Edges[i].weight;
-
-        int hRoot = find(h);
-        int tRoot = find(t);
-
-        if (hRoot != tRoot) {
-            result += w;
-            edgeCount++;
-            parent[hRoot] = tRoot; //并查集合并，加上if判断确保不会成环
-
-            cout << Edges[i].Head << "->" << Edges[i].Tail << endl;
-        }
-    }
-    return result;
+int main() {
+    return 0;
 }
