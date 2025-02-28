@@ -30,8 +30,8 @@ void dijkstra(int source, int n) {
         visited[t] = true;
 
         for (int j = 0; j < n; ++j) {//用t更新剩下点的最短路
-            if (graph[t][j] != INF && dist[t] != INF) {
-                dist[j] = min(dist[j], dist[t] + graph[t][j]);
+            if (graph[t][j] != INF && dist[t] + graph[t][j] < dist[j]) {
+                dist[j] = dist[t][j] + graph[t][j];
             }
         }
     }
