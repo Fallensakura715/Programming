@@ -16,13 +16,17 @@ struct edge {
 
 vector<vector<edge>> graph;
 vector<int> dist;
+vector<int> prev;//前驱节点，用于存储路径
 int n;
 
+// Dijkstra算法实现
 void dijkstra(int source) {
     dist.assign(n, INF);
+    prev.assign(n, -1);
+    
     dist[source] = 0;
-
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;//自定义小根堆
+    
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
     heap.emplace(0, source);
 
     while (!heap.empty()) {
@@ -36,12 +40,15 @@ void dijkstra(int source) {
 
         for (const edge &e: graph[u]) {
             int v = e.to;
-            if (dist[v] > d + e.weight) {
+            int weight = e.weight;
+            
+            if (dist[v] > dist[u] + weight) {
+                dist[v] = dist[u] + weight;
+                prev[v] = u;
                 heap.emplace(dist[v], v);
             }
         }
     }
-    
 }
 
 int main() {
