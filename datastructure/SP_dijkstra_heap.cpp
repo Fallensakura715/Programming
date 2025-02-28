@@ -16,10 +16,9 @@ struct edge {
 
 vector<vector<edge>> graph;
 vector<int> dist;
-vector<int> prev;//前驱节点，用于存储路径
+vector<int> prev;//节点i的前驱节点，用于存储路径
 int n;
 
-// Dijkstra算法实现
 void dijkstra(int source) {
     dist.assign(n, INF);
     prev.assign(n, -1);
