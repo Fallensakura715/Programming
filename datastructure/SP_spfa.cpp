@@ -11,21 +11,13 @@ struct Edge {
     int to, weight;
 };
 
+int n, m;
+
 //spfa算法，能处理负权图，o(m),最坏o(nm)
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    vector<vector<Edge>> graph(n);
-    for (int i = 0; i < m; ++i) {
-        int x, y, z;
-        graph[x].push_back({y, z});
-        graph[y].push_back({x, z});
-    }
-
+void spfa(vector<vector<Edge>>& graph) {
     vector<bool> inQueue(n, false);
     vector<int> dist(n, INF);
-    vector<int> countRelax(n, 0);
+    vector<int> countRelax(n, 0);//点i被松弛的次数
     queue<int> q;
 
     dist[0] = 0;
@@ -33,6 +25,7 @@ int main() {
     inQueue[0] = true;
 
     bool negativeCycle = false;
+    
     while (!q.empty()) {
         int u = q.front();//队列里存的是所有变小过的dist[],只要队列不空就用dist[]+w更新其他点
         q.pop();
@@ -41,6 +34,7 @@ int main() {
         for (const auto& edge: graph[u]) {
             int v = edge.to;
             int w = edge.weight;
+
             if (dist[u] != INF && dist[u] + w < dist[v]) {
                 dist[v] = dist[u] + w;
                 if (!inQueue[v]) {
@@ -58,5 +52,8 @@ int main() {
         if (negativeCycle) break;
     }
 
+}
+
+int main() {
     return 0;
 }
