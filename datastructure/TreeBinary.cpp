@@ -4,6 +4,78 @@
 
 using namespace std;
 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int n;
+// int parent[110]; 
+
+// int main() {
+//   ios::sync_with_stdio(false); cin.tie(nullptr);
+
+//   cin >> n;
+
+//   vector<vector<int>> child(n + 1);
+
+//   for (int i = 1; i <= n - 1; ++i) {
+//     int a, b;
+//     cin >> a >> b;
+//     parent[b] = a;
+//     child[a].push_back(b);
+//   }
+
+//   int max_depth = 1;
+//   vector<int> level(n + 1, 0);
+//   vector<int> level_conut(n + 1, 0);
+
+//   queue<int> q;
+
+//   q.push(1);
+//   level[1] = 1;
+//   level_conut[1] = 1;
+
+//   while (!q.empty()) {
+//     auto curr = q.front();
+//     q.pop();
+
+//     for (auto& chil : child[curr]) {
+//       level[chil] = level[curr] + 1;
+//       level_conut[level[chil]]++;
+//       max_depth = max(max_depth, level[chil]);
+//       q.push(chil);
+//     }
+//   }
+
+//   int wid = 0;
+//   for (int i = 1; i <= max_depth; ++i) {
+//     wid = max(wid, level_conut[i]);
+//   }
+
+//   int x, y;
+//   cin >> x >> y;
+//   寻找最近公共祖先（LCA）
+//   int a = x, b = y;
+//   while (level[a] > level[b]) {
+//     a = parent[a];
+//   }
+//   while (level[b] > level[a]) {
+//     b = parent[b];
+//   }
+//   while (a != b) {
+//     a = parent[a];
+//     b = parent[b];
+//   }
+//   int lca = a;
+
+//   int dist = 2 * (level[x] - level[lca]) + (level[y] - level[lca]);
+
+//   cout << max_depth << "\n";
+//   cout << wid << "\n";
+//   cout << dist << "\n";
+
+//   return 0;
+// }
+
 class BiTree {
     using ElemType = int;
 
