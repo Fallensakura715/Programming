@@ -205,6 +205,24 @@ public:
 //     return root;
 // }
 
+// void createBiTree(int inL, int inR, int postL, int postR) {
+//   if (inL >= inR) return;
+//   if (postL >= postR) return;
+
+//   char root = postorder[postR - 1];
+//   cout << root;
+
+//   int idx = inL;
+//   while (idx < inR && inorder[idx] != root) {
+//     idx++;
+//   }
+
+//   int leftcnt = idx - inL;
+
+//   createBiTree(inL, idx, postL, postL + leftcnt);
+//   createBiTree(idx + 1, inR, postL + leftcnt, postR - 1);
+// }
+
 // BiTNode* CreateBT(int* pre, int *in, int n) {
 //     if (n == 0) return nullptr;
 //     return createBT(pre, 0, n - 1, in, 0, n - 1);
