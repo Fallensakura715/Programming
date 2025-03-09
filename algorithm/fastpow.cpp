@@ -27,7 +27,7 @@ long long powAndMod(long long a, long long n, long long p) {
     a %= p;
     while (n > 0) {
         if (n & 1) {
-            result *= a;
+            result = (result * a) % m;
         }
         a = a * a % p;
         n >>= 1;
