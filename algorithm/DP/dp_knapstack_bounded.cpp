@@ -52,7 +52,9 @@ int main() {
     for (int r = 0; r < value[i]; r++) {
       dq.clear();
       for (int j = r; j <= c; j += value[i]) {
-        if (!dq.empty() && dq.front() < j - select[i] * value[i]) dq.pop_front();
+        if (!dq.empty() && dq.front() < j - select[i] * value[i]) {
+          dq.pop_front();
+        }
         int val = dp_dq[j] - (j / value[i]) * weight[i];
         while (!dq.empty() && dp_dq[dq.back()] - (dq.back() / value[i]) * weight[i] <= val) {
           dq.pop_back();
