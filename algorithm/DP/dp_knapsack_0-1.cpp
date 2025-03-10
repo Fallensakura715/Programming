@@ -6,7 +6,7 @@ using namespace std;
 int dp1[N], dp2[N][N];
 int n, m, v[N], w[N];
 
-//dp含义是从所有前i个物品中选，并且总体积不超过j的选法
+//dp含义是从所有前i个物品中选，并且总体积不超过j的选法, 总价值的最大值
 void dp_2() {
     for (int i = 1; i <= n; ++i) {
         for (int j = 0; j <= m; ++j) {
