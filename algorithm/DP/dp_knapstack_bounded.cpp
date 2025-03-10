@@ -53,20 +53,7 @@ int main() {
 
   // O(NC) 单调队列优化版本
   for (int i = 1; i <= n; i++) {
-    for (int r = 0; r < weight[i]; r++) {
-      deque<int> dq;
-      for (int j = r; j <= c; j += weight[i]) {
-        if (!dq.empty() && dq.front() < j - select[i] * weight[i]) {
-          dq.pop_front();
-        }
-        int val = dp_dq[j] - (j / weight[i]) * value[i];
-        while (!dq.empty() && dp_dq[dq.back()] - (dq.back() / weight[i]) * value[i] <= val) {
-          dq.pop_back();
-        }
-        dq.push_back(j);
-        dp_dq[j] = dp_dq[dq.front()] + (j / weight[i]) * value[i];
-      }
-    }
+    
   }
 
   cout << dp[n][c] << "\n";
