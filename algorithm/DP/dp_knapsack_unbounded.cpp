@@ -12,15 +12,16 @@ int main() {
         cin >> v[i] >> w[i];
     }
 
-    //¶þÎ¬dp
+    //朴素二维dp
     for (int i = 1; i <= n; ++i) {
         for (int j = 0; j <= capacity; ++j) {
             dp2[i][j] = dp2[i - 1][j];
-            if (j >= v[i]) dp2[i][j] = max(dp2[i][j], dp2[i][j - v[i]] + w[i]);
+            if (j >= v[i]) 
+                dp2[i][j] = max(dp2[i][j], dp2[i][j - v[i]] + w[i]);
         }
     }
     
-    //Ò»Î¬ÓÅ»¯°æ
+    //一维优化
     for (int i = 1; i <= n; ++i) {
         for (int j = v[i]; j <= capacity; ++j) {
             dp[j] = max(dp[j], dp[j - v[i]] + w[i]);
