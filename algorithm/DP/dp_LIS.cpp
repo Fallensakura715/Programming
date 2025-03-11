@@ -21,8 +21,22 @@ int main() {
     }
   }
 
+  vector<int> tails;
+  //二分+贪心优化nlogn
+  //tails[i]存的是 长度为i的上升子序列 的末尾 最可能小的值
+  for (int x : a) {
+    auto it = lower_bound(tails.begin(), tails.end(), x);
+    if (it == tails.end()) {
+      tails.push_back(x);
+    } else {
+      *it = x;
+    }
+  }
+
   int res = *max_element(dp.begin(), dp.end());
   cout << res << endl;
+
+  cout << tails.size() << endl;
 
   return 0;
 }
