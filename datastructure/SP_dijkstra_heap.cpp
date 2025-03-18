@@ -25,7 +25,7 @@ void dijkstra(int source) {
     
     dist[source] = 0;
     
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> heap;
     heap.emplace(0, source);
 
     while (!heap.empty()) {
